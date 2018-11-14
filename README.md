@@ -64,12 +64,29 @@ Usage:
       -c CLIP-seq mapped reads file
       -r RNA-seq mapped reads file
 
+To run ASPRIN, 3 arguments have to be provided"
+
+1) The set of SNPs, in .vcf file format. This set of SNPs can either be 
+genotype data obtained previously from any assay, or can be set of 
+variants that are called from the RNA-seq data. This file is a vcf file
+
+2) CLIP-seq data, in .bam file format, sorted based on coordinates and indexed.
+
+3) RNA-seq data, in .bam file format, sorted based on coordinates and indexed.
+
+Examples:
+---------------------------------------
+
+Depending on what is available as input, ASPRIN has 4 different modes of operation.
+
+      $ 
+
 
 dbSNP and RADAR databases:
 ---------------------------------------
 dbSNP and RADAR under hg19 annotations databases can be downloaded from here:
 
-dbSNP: ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606/VCF/All_20170710.vcf.gz
+dbSNP: ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606/VCF/All_20180418.vcf.gz
 
 RADAR: http://lilab.stanford.edu/GokulR/database/Human_AG_all_hg19_v2.txt
 
