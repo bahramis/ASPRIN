@@ -26,7 +26,7 @@ import gzip,subprocess,re,logging,time,datetime,commands,argparse,random
 from collections import defaultdict
 
 def write_output(genotype_info, clip_reads, clip_coverage, \
-                 rna_reads, rna_coverage, asprin_qvalues, \
+                 rna_reads, rna_coverage, asprin_qvalues_fet, asprin_qvalues_mats, \
                  asprin_odds_ratio, minimum_coverage) :
   i = 0
   for chrom in genotype_info:
@@ -47,7 +47,8 @@ def write_output(genotype_info, clip_reads, clip_coverage, \
               str(rna_reads[chrom][pos]['C']) + " , " + \
               str(rna_reads[chrom][pos]['G']) + " , " + \
               str(rna_reads[chrom][pos]['T']) + "]\t" + \
-              str(asprin_qvalues[i]) + "\t" + str(asprin_odds_ratio[i])
+              str(asprin_qvalues_fet[i]) + "\t" + \
+              str(asprin_odds_ratio[i]) + "\t" + str(asprin_qvalues_mats[i])
         i += 1
 
 
@@ -117,15 +118,21 @@ def main() :
                         str(args.rnaseq) + '\n')
       x.rnaseq_reads_coverage(args.nthreads)
 
-      asprin_qvalues, asprin_odds_ratio = \
-        Model(minimum_coverage).perform_test(x.genotype_info, \
+      m = Model(minimum_coverage, 0.9, 0.0001, x.snp_counter)
+      asprin_qvalues_fet, asprin_odds_ratio = m.perform_test(x.genotype_info, \
+                                                             x.clip_reads, \
+                                                             x.clip_coverage, \
+                                                             x.rna_reads, \
+                                                             x.rna_coverage)
+
+      asprin_qvalues_mats = m.perform_test_2(x.genotype_info, \
                                              x.clip_reads, \
                                              x.clip_coverage, \
                                              x.rna_reads, \
                                              x.rna_coverage)
 
       write_output(x.genotype_info, x.clip_reads, x.clip_coverage, \
-                   x.rna_reads, x.rna_coverage, asprin_qvalues, \
+                   x.rna_reads, x.rna_coverage, asprin_qvalues_fet, asprin_qvalues_mats, \
                    asprin_odds_ratio, minimum_coverage)
 
       sys.stderr.write('\n')
