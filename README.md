@@ -22,6 +22,10 @@ location for all users, you may need to prefix these with sudo.
 
     ./configure
 
+ If user does not have administrator level access, type:
+
+    ./configure --prefix=/home/user/installation/path/
+
 This will configure the installation. ASPRIN is written partially in Python.
 By default, it will use whichever python interpreter is invoked when you type
 'Python' on the command line. If you wish to specify a different version of
@@ -32,6 +36,11 @@ to specify the path to python and all of the exeternal software packages,
 you would type the following:
 
     ./configure --with-python=/some/path/to/python
+
+You can also set PYTHONPATH to augment search path for module files, with the
+same format as shell’s PATH. For more information, refer to:
+
+    https://docs.python.org/2/using/cmdline.html#envvar-PYTHONPATH
 
 You needn't include them all, just the ones that cannot be found in your path.
 The configure script will tell you if any requirements cannot be found, in
