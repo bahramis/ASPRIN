@@ -84,8 +84,8 @@ ASPRIN has 5 different modes of operation:
 
 1. ASPRIN running on variants present in dbSNP only (SNPs)
 
-    $ asprin -g example/HepG2_test_variants.vcf -s example/dbsnp_test.vcf \
-             -c example/RBFOX2_HepG2_clip_test.bam \
+    $ asprin -g example/HepG2_test_variants.vcf -s example/dbsnp_test.vcf
+             -c example/RBFOX2_HepG2_clip_test.bam
              -r example/HepG2_total_rnaseq_test.bam
              -o output_snps.txt
 
