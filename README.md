@@ -84,41 +84,41 @@ ASPRIN has 5 different modes of operation:
 
 1. ASPRIN running on variants present in dbSNP only (SNPs)
 
-      $ asprin -g example/HepG2_test_variants.vcf -s example/dbsnp_test.vcf \
-               -c example/RBFOX2_HepG2_clip_test.bam \
-               -r example/HepG2_total_rnaseq_test.bam
-               -o output_snps.txt
+    $ asprin -g example/HepG2_test_variants.vcf -s example/dbsnp_test.vcf \
+             -c example/RBFOX2_HepG2_clip_test.bam \
+             -r example/HepG2_total_rnaseq_test.bam
+             -o output_snps.txt
 
 2. ASPRIN running on variants present in RADAR only (RNA editing events)
 
-      $ asprin -g example/HepG2_test_variants.vcf -e example/radar_test.txt \
-               -c example/RBFOX2_HepG2_clip_test.bam \
-               -r example/HepG2_total_rnaseq_test.bam
-               -o output_editting.txt
+    $ asprin -g example/HepG2_test_variants.vcf -e example/radar_test.txt \
+             -c example/RBFOX2_HepG2_clip_test.bam \
+             -r example/HepG2_total_rnaseq_test.bam
+             -o output_editting.txt
 
 3. ASPRIN running on variants in both dbSNP and RADAR 
 
-      $ asprin -g example/HepG2_test_variants.vcf \
-               -s example/dbsnp_test.vcf -e example/radar_test.txt \
-               -c example/RBFOX2_HepG2_clip_test.bam \
-               -r example/HepG2_total_rnaseq_test.bam
-               -o output_snps_and_editting.txt
+    $ asprin -g example/HepG2_test_variants.vcf \
+             -s example/dbsnp_test.vcf -e example/radar_test.txt \
+             -c example/RBFOX2_HepG2_clip_test.bam \
+             -r example/HepG2_total_rnaseq_test.bam
+             -o output_snps_and_editting.txt
 
 4. ASPRIN running on all variants
 
-      $ asprin -g example/HepG2_test_variants.vcf \
-               -c example/RBFOX2_HepG2_clip_test.bam \
-               -r example/HepG2_total_rnaseq_test.bam
-               -o output_all.txt
+    $ asprin -g example/HepG2_test_variants.vcf \
+             -c example/RBFOX2_HepG2_clip_test.bam \
+             -r example/HepG2_total_rnaseq_test.bam
+             -o output_all.txt
 
 5. ASPRIN running on all variants but label the SNPs and RNA editing events:
 
-      $ asprin -g example/HepG2_test_variants.vcf \
-               -s example/dbsnp_test.vcf -e example/radar_test.txt \
-               -a \
-               -c example/RBFOX2_HepG2_clip_test.bam \
-               -r example/HepG2_total_rnaseq_test.bam
-               -o output_all_labeled.txt
+    $ asprin -g example/HepG2_test_variants.vcf \
+             -s example/dbsnp_test.vcf -e example/radar_test.txt \
+             -a \
+             -c example/RBFOX2_HepG2_clip_test.bam \
+             -r example/HepG2_total_rnaseq_test.bam
+             -o output_all_labeled.txt
 
 The example input and outputs are found in the folder called example.
 
