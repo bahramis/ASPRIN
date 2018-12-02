@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import os,sys,argparse
-
+import progressbar
 
 def find_regions(exon_start_loci, exon_end_loci, cds_start, cds_end):
 
@@ -83,7 +83,16 @@ else :
       gene[transcript] = [chrom] + updated_regions[:] + [cds_start] + [cds_end] + [strand] + [gene_name]
       gene_strand[gene_name] = strand
 
-    for line in open(args.asprin_file):
+    asprin_in = open(args.asprin_file)
+    asprin_size = sum(1 for line in asprin_in)
+    asprin_in.close()
+    bar = progressbar.ProgressBar(maxval=asprin_size, \
+      widgets=[progressbar.Bar('=','[',']'), ' ', progressbar.Percentage()])
+    bar.start()
+    asprin_counter = 0
+    asprin_in = open(args.asprin_file)
+
+    for line in asprin_in:
       line = line.rstrip('\n\r')
       asprin_result = line.split('\t')
       if (asprin_result[0] == "chromosome"): continue
@@ -190,4 +199,11 @@ else :
                                 gene_strand[gene_name[0]]]))
       else :
         print('\t'.join([line , "NA", "Intergenic", "NA"]))
+
+      asprin_counter += 1
+      if (asprin_counter <= asprin_size) :
+        bar.update(asprin_counter)
+
+    asprin_in.close()
+    bar.finish()
 
