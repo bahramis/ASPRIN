@@ -70,8 +70,21 @@ To run ASPRIN, 3 arguments have to be provided:
 3) RNA-seq data, mapped reads in .bam file format, sorted based on coordinates 
    and indexed, following any RNA-seq mapping procedure of choise.
 
+In addition, 4 optional arguments can be provided to filer SNVs to focus on variants
+of choice.
 
+1) dbSNP VCF file: To be able to filter noise, focus on SNPs, or simply label the SNPs 
+   that are in the SNV file.
 
+2) RADAR RNA editing database file: To focus or simply just lebel variants that are known 
+   RNA-edditing events.
+
+3) Number of threads (the default value is the number of chromosomes in the SNV file)
+
+4) -a option, to consider all the variants, even if dbSNP and RNA edditting files are 
+   provided for labeling the variants.
+
+```bash
     $ asprin [-h] [-g Single Nucleotide Variants (SNVs) file]
              [-c CLIP-seq mapped reads file]
              [-r RNA-seq mapped reads file] 
@@ -79,29 +92,20 @@ To run ASPRIN, 3 arguments have to be provided:
              [-e RADAR RNA editing database file]
              [-t Number of threads default: 25] [-a]
 
-     ASPRIN: Allele Specific Protein-RNA Interaction
+    ASPRIN: Allele Specific Protein-RNA Interaction
 
-        optional arguments:
+    optional arguments:
       -h, --help            show this help message and exit
       -s dbSNP VCF file
       -e RADAR RNA editing database file
-      -t Number of threads (default: 20)
+      -t Number of threads (default: number of chromosomes in SNV file)
       -a                    Use all the variants
 
     required arguments:
       -g Single Nucleotide Variants file
       -c CLIP-seq mapped reads file
       -r RNA-seq mapped reads file
-
-To run ASPRIN, 3 arguments have to be provided"
-
-1) The set of SNPs, in .vcf file format. This set of SNPs can either be 
-genotype data obtained previously from any assay, or can be set of single 
-nucleotide variants that are called from the RNA-seq data.
-
-2) CLIP-seq data, in .bam file format, sorted based on coordinates and indexed.
-
-3) RNA-seq data, in .bam file format, sorted based on coordinates and indexed.
+```
 
 Examples:
 ---------------------------------------
