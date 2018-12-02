@@ -79,7 +79,7 @@ of choice, or simply just label variants:
 2) RADAR RNA editing database file: To focus or simply just lebel variants that are known 
    RNA-edditing events.
 
-3) Number of threads (the default value is the number of chromosomes in the SNV file)
+3) Number of threads (the default value is 25)
 
 4) -a option, to consider all the variants, even if dbSNP and RNA edditting files are 
    provided for labeling the variants.
@@ -98,7 +98,7 @@ of choice, or simply just label variants:
       -h, --help            show this help message and exit
       -s dbSNP VCF file
       -e RADAR RNA editing database file
-      -t Number of threads (default: number of chromosomes in SNV file)
+      -t Number of threads (default: 25)
       -a                    Use all the variants
 
     required arguments:
