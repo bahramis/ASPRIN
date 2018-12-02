@@ -60,8 +60,8 @@ To run ASPRIN, 3 arguments have to be provided:
 
 1) Either Single Nucleotide Variants (SNVs) file called from RNA-seq data 
    independently or the genotype file obtained previously from any assay.
-   In either case, the variants have to be obtained prior to running ASPRIN.
-   In .vcf file format.
+   In either case, the variants have to be obtained prior to running ASPRIN and 
+   should be in .vcf file format.
 
 2) CLIP-seq data, mapped reads in .bam file format, sorted based on coordinates 
    and indexed. Mapped reads are preferably from eCLIP assay, following the ENCODE 
