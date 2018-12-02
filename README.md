@@ -56,10 +56,12 @@ This will install Python modules for whichever version of Python you are using.
 Usage:
 ---------------------------------------
 
-    $ asprin [-h] [-g Genotype file] [-c CLIP-seq mapped reads file]
-              [-r RNA-seq mapped reads file] [-s dbSNP VCF file]
-              [-e RADAR RNA editing database file]
-              [-t Number of threads default: 25] [-a]
+    $ asprin [-h] [-g Either the genotype file or Single Nucleotide Variants (SNVs) file called from RNA-seq data independently and prior to running ASPRIN] 
+             [-c CLIP-seq mapped reads file, preferably eCLIP data, and following the ENCODE eCLIP processing pipeline up to and before calling peaks]
+             [-r RNA-seq mapped reads file following any RNA-seq mapping procedure of choise]
+             [-s dbSNP VCF file]
+             [-e RADAR RNA editing database file]
+             [-t Number of threads default: 25] [-a]
 
      ASPRIN: Allele Specific Protein-RNA Interaction
 
@@ -71,15 +73,15 @@ Usage:
       -a                    Use all the variants
 
     required arguments:
-      -g Genotype file
+      -g SNV file
       -c CLIP-seq mapped reads file
       -r RNA-seq mapped reads file
 
 To run ASPRIN, 3 arguments have to be provided"
 
 1) The set of SNPs, in .vcf file format. This set of SNPs can either be 
-genotype data obtained previously from any assay, or can be set of 
-variants that are called from the RNA-seq data. This file is a vcf file
+genotype data obtained previously from any assay, or can be set of single 
+nucleotide variants that are called from the RNA-seq data.
 
 2) CLIP-seq data, in .bam file format, sorted based on coordinates and indexed.
 
